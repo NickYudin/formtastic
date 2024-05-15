@@ -17,12 +17,11 @@ module Formtastic
       ]
 
     class << self
-
       def translate(*args)
         key = args.shift.to_sym
         options = args.extract_options!
-        options.reverse_merge!(:default => ::Formtastic::I18n::DEFAULT_VALUES[key])
-        options[:scope] = [::Formtastic::I18n::DEFAULT_SCOPE, options[:scope]].flatten.compact
+        options.reverse_merge!(:default => DEFAULT_VALUES[key])
+        options[:scope] = [DEFAULT_SCOPE, options[:scope]].flatten.compact
         ::I18n.translate(key, *args, **options)
       end
 
