@@ -5,7 +5,7 @@ module Formtastic
   module I18n
 
     DEFAULT_SCOPE = [:formtastic].freeze
-    DEFAULT_VALUES = ::Formtastic::I18n::DEFAULT_VALUES[key]
+    DEFAULT_VALUES = YAML.load_file(File.expand_path("../../locale/en.yml", __FILE__))["en"]["formtastic"].freeze
     SCOPES = [
         '%{model}.%{nested_model}.%{action}.%{attribute}',
         '%{model}.%{nested_model}.%{attribute}',
